@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Da Velha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p class="title">JOGO DA VELHA</p>
+    </header>
+    <section>
+        <div class="tabuleiro">
+            <table>
+                <tr>
+                    <td>
+                        <button id="a1" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="b1" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="c1" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="a2" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="b2" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="c2" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="a3" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="b3" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                    <td>
+                        <button id="c3" onclick="marcar(this)" class="tabuleiro_opcao"></button>
+                    </td>
+                </tr>
+            </table>
+            <div id="recomecar" style="text-align: center; margin-top: 30px;">
+                <input type="button" value="REINICIAR" onClick="window.location.reload()" class="btn-jogar">
+            </div>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+
+    <script>
+
+        jogador_vez = 'X';
+        jogo_acabou = false;
+
+        function verificar_campeao(){
+            const recomecar = document.getElementById("recomecar");
+            const a1 = document.getElementById("a1");
+            const a2 = document.getElementById("a2");
+            const a3 = document.getElementById("a3");
+            const b1 = document.getElementById("b1");
+            const b2 = document.getElementById("b2");
+            const b3 = document.getElementById("b3");
+            const c1 = document.getElementById("c1");
+            const c2 = document.getElementById("c2");
+            const c3 = document.getElementById("c3");
+
+            if (a1.innerHTML === b1.innerHTML && b1.innerHTML === c1.innerHTML && a1.innerHTML !== '') {
+                jogo_acabou = true;
+                a1.style.backgroundImage = "url('img/win.png')";
+                a1.style.backgroundSize = 'cover';
+                b1.style.backgroundImage = "url('img/win.png')";
+                b1.style.backgroundSize = 'cover';
+                c1.style.backgroundImage = "url('img/win.png')";
+                c1.style.backgroundSize = 'cover';
+            }
+            else if (a2.innerHTML === b2.innerHTML && b2.innerHTML === c2.innerHTML && a2.innerHTML !== '') {
+                jogo_acabou = true;
+                a2.style.backgroundImage = "url('img/win.png')";
+                a2.style.backgroundSize = 'cover';
+                b2.style.backgroundImage = "url('img/win.png')";
+                b2.style.backgroundSize = 'cover';
+                c2.style.backgroundImage = "url('img/win.png')";
+                c2.style.backgroundSize = 'cover';
+            }
+            else if (a3.innerHTML === b3.innerHTML && b3.innerHTML === c3.innerHTML && a3.innerHTML !== '') {
+                jogo_acabou = true;
+                a3.style.backgroundImage = "url('img/win.png')";
+                a3.style.backgroundSize = 'cover';
+                b3.style.backgroundImage = "url('img/win.png')";
+                b3.style.backgroundSize = 'cover';
+                c3.style.backgroundImage = "url('img/win.png')";
+                c3.style.backgroundSize = 'cover';
+            }
+            else if (a1.innerHTML === a2.innerHTML && a2.innerHTML === a3.innerHTML && a1.innerHTML !== '') {
+                jogo_acabou = true;
+                a1.style.backgroundImage = "url('img/win.png')";
+                a1.style.backgroundSize = 'cover';
+                a2.style.backgroundImage = "url('img/win.png')";
+                a2.style.backgroundSize = 'cover';
+                a3.style.backgroundImage = "url('img/win.png')";
+                a3.style.backgroundSize = 'cover';
+            }
+            else if (b1.innerHTML === b2.innerHTML && b2.innerHTML === b3.innerHTML && b1.innerHTML !== '') {
+                jogo_acabou = true;
+                b1.style.backgroundImage = "url('img/win.png')";
+                b1.style.backgroundSize = 'cover';
+                b2.style.backgroundImage = "url('img/win.png')";
+                b2.style.backgroundSize = 'cover';
+                b3.style.backgroundImage = "url('img/win.png')";
+                b3.style.backgroundSize = 'cover';
+            }
+            else if (c1.innerHTML === c2.innerHTML && c2.innerHTML === c3.innerHTML && c1.innerHTML !== '') {
+                jogo_acabou = true;
+                c1.style.backgroundImage = "url('img/win.png')";
+                c1.style.backgroundSize = 'cover';
+                c2.style.backgroundImage = "url('img/win.png')";
+                c2.style.backgroundSize = 'cover';
+                c3.style.backgroundImage = "url('img/win.png')";
+                c3.style.backgroundSize = 'cover';  
+            }
+            else if (a1.innerHTML === b2.innerHTML && b2.innerHTML === c3.innerHTML && a1.innerHTML !== '') {
+                jogo_acabou = true;
+                a1.style.backgroundImage = "url('img/win.png')";
+                a1.style.backgroundSize = 'cover';
+                b2.style.backgroundImage = "url('img/win.png')";
+                b2.style.backgroundSize = 'cover';
+                c3.style.backgroundImage = "url('img/win.png')";
+                c3.style.backgroundSize = 'cover';
+            }
+            else if (a3.innerHTML === b2.innerHTML && b2.innerHTML === c1.innerHTML && a3.innerHTML !== '') {
+                jogo_acabou = true;
+                a3.style.backgroundImage = "url('img/win.png')";
+                a3.style.backgroundSize = 'cover';
+                b2.style.backgroundImage = "url('img/win.png')";
+                b2.style.backgroundSize = 'cover';
+                c1.style.backgroundImage = "url('img/win.png')";
+                c1.style.backgroundSize = 'cover';
+            }
+
+            if (jogo_acabou) {
+                const botoes = document.querySelectorAll('.tabuleiro_opcao');
+                botoes.forEach(botao => botao.disabled = true);
+            }
+        }
+
+        function marcar(opcao) {
+
+                // verifica se ja foi marcado e define o ponto com a marca do jogador
+                if (opcao.innerHTML !== '') {
+                    return;
+                }
+                opcao.innerHTML = jogador_vez;
+
+                if (jogador_vez === 'X') {
+                    opcao.style.backgroundImage = "url('img/cat.png')"; // Imagem para 'X'
+                    opcao.style.backgroundSize = 'cover'; // Faz a imagem se ajustar ao tamanho do botão
+                    opcao.style.backgroundColor = 'rgba(128, 0, 128, 0.5)'; // Cor roxa com opacidade
+                    opcao.style.mixBlendMode = 'multiply'; // Combina a cor com a imagem de fundo
+                } else {
+                    opcao.style.backgroundImage = "url('img/ghost.png')"; // Imagem para 'X'
+                    opcao.style.backgroundSize = 'cover'; // Faz a imagem se ajustar ao tamanho do botão
+                }
+
+                verificar_campeao();
+
+                if (jogador_vez === 'X') {
+                    jogador_vez = 'O';
+                } else {
+                    jogador_vez = 'X';
+                }
+            }
+    </script>
+</body>
+</html>
